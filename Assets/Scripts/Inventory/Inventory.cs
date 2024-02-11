@@ -27,12 +27,13 @@ namespace Zong.Inventory
         #region Public Methods
         public void Add(ItemData itemData)
         {
-            
-            Item newItem = new Item(itemData);
-            print(newItem);
-            inventory.Add(newItem);
-            itemDictionary.Add(itemData, newItem);
-            OnInventoryChanged?.Invoke(inventory);
+            if(!itemDictionary.TryGetValue(itemData, out Item item))
+            {
+                Item newItem = new Item(itemData);
+                inventory.Add(newItem);
+                itemDictionary.Add(itemData, newItem);
+                OnInventoryChanged?.Invoke(inventory);
+            }
         }
 
         public void Remove(ItemData itemData)

@@ -17,7 +17,7 @@ public class PlayerPickupController : MonoBehaviour
     [field: SerializeField]
     private LayerMask grabLayerMask;
     #endregion
-
+    private CharacterController characterController => GetComponent<CharacterController>();
     private IGrabbable grabbable;
     private float grabDistance = 2f;
 
@@ -38,7 +38,7 @@ public class PlayerPickupController : MonoBehaviour
             {
                 if (raycastHit.transform.TryGetComponent(out grabbable)) 
                 {
-                    grabbable.Grab(grabPointTransform);
+                    grabbable.Grab(grabPointTransform, characterController);
                 }
             }
         }

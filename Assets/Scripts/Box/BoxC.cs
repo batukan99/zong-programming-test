@@ -1,6 +1,7 @@
 using UnityEngine;
 using EasyUI.Toast;
 using Zong.Sound;
+using Zong.Commands;
 
 namespace Zong.Boxes
 {
@@ -23,6 +24,7 @@ namespace Zong.Boxes
             var message = "Go Back to Event 2";
             Toast.Show(message, 1.5f);
             Singleton<SoundManager>.Instance.PlayBoxCSound(audioSource);
+            Singleton<CommandManager>.Instance.OnPopCommand();
         }
         #endregion
 
