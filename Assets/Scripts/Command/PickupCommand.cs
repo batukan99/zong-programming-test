@@ -31,6 +31,7 @@ namespace Zong.Commands
             playerCharacterController.enabled = false;
             playerCharacterController.transform.position = previousPlayerPosition;
             playerCharacterController.enabled = true;
+            Cursor.visible = true;
         }
     }
 

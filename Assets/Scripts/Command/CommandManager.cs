@@ -10,14 +10,12 @@ namespace Zong.Commands
 
         public void OnPushCommand(ICommand command)
         {
-            print("OnPushCommand " + command);
             commands.Push(command);
             command.Execute();
         }
         public void OnPopCommand()
         {
             ICommand oldCommand = commands.Pop();
-            print("OnPopCommand " + oldCommand);
             oldCommand.Undo();
         }
     }
